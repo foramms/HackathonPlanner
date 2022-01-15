@@ -12,6 +12,12 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    phonenumber:  {
+        type: String,
+    },
+    planners:[
+        {type: Schema.Types.ObjectId, ref: 'Planner'}
+      ],
     token: String,
 }, {
     timestamps: true
