@@ -5,7 +5,6 @@ const Task = require('../models/task');
 const encrypt = require('../utils/encrypt');
 var jwt = require('jsonwebtoken');
 
-
 /**
  * Sign In
  * @param {*} req 

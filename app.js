@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 
 const userroutes = require('./routes/userroutes');
 const taskroutes = require('./routes/taskroutes');
+const plannerroutes = require('./routes/plannerroutes');
 
 const app = express();
 const port = 4000;
@@ -17,6 +18,7 @@ const conectionURI = "mongodb://d348142ea8d3bf5e699e3ac88298a5d7:mekaro12@12a.mo
 
 app.use('/user', userroutes);
 app.use('/task', taskroutes);
+app.use('/planner', plannerroutes);
 
 app.get('/login', (req, res) => {
     res.sendFile('./views/login.html', { root: __dirname });
