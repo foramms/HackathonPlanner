@@ -12,7 +12,7 @@ const conectionURI = "mongodb://d348142ea8d3bf5e699e3ac88298a5d7:mekaro12@12b.mo
 
 app.get('/', (req, res) => {
     console.log("HELOc");
-    res.sendFile('./views/index.html', { root: __dirname });
+    res.sendFile('./views/login.html', { root: __dirname });
 });
 
 mongoose.connect(conectionURI)
