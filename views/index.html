@@ -30,8 +30,10 @@
             <div class="container">
               <div class="row pt-2">
                 <div class="col">
-                  <select class="form-select" aria-label="Default select example">
-                    <option selected>{{message}}</option>
+                  <select v-model="plannerselected" class="form-select">
+                    <option v-for="planner in planners" :value="planner" :key="planner.id">
+                      {{ planner.name }}
+                    </option>
                   </select>
                 </div>
                 <div class="col align-self-center">
@@ -72,7 +74,7 @@
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
                             Fifth checkbox
-                          </li>
+                          </li> 
                         </ul>
                         
                         
@@ -175,13 +177,26 @@
         var app = new Vue({
           el: '#app',
           data: {
-            message: 'Hello Vue!'
+            message: 'Hello Vue!',
+            planners: [],
+            plannerselected: {},
           }, 
           mounted () {
+            const headers = {
+              'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IndvcmtwbGVhc2UxMiIsImlhdCI6MTY0MjI4NjkzNSwiZXhwIjoxNjQyMjk3NzM1fQ.R1MJmibsEASx1cYvLhqPgT3eKJoIgxombmiOl41Ftbw',
+            }
+            var myself = this;
+
             axios
-              .get('https://api.coindesk.com/v1/bpi/currentprice.json')
-              .then(response => conole.log(response))
-              .catch(error => {console.log(error)})
+              .get('/planner/list',{
+                headers: headers
+              })
+              .then(response => { 
+                myself.planners = response.data;
+                console.log(myself.planners);
+                myself.plannerselected = myself.planners[0];
+              })
+              .catch(error => console.log(error))
           }
         })
       </script>
