@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 
 const userroutes = require('./routes/userroutes');
+const taskroutes = require('./routes/taskroutes');
 
 const app = express();
 const port = 3000;
@@ -15,9 +16,9 @@ const conectionURI = "mongodb://d348142ea8d3bf5e699e3ac88298a5d7:mekaro12@12a.mo
 
 
 app.use('/user', userroutes);
+app.use('/task', taskroutes);
 
 app.get('/', (req, res) => {
-    console.log("HELOc");
     res.sendFile('./views/login.html', { root: __dirname });
 });
 
