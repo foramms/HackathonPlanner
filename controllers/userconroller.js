@@ -34,6 +34,41 @@ const signin = (req, res) => {
     });
 };
 
+const login = (req, res) => {
+    const data = req.body;
+
+    User.findOne({ username: data.username }, (err, user) => {
+        if (err) { // If there were any error
+            res.status(400).json({ messageError: "An unexpected error has occurred" });
+            return console.log(err);
+        }
+
+        // Check if the user exist
+        if (!user) return res.status(200).json({ state: "error", messageError: "The user dosen't exist", field: "username" });
+
+        // We have to compare the password
+        encrypt.comparePassword(data.password, user.password, (error, isPassword) => {
+            if (error || !isPassword) {
+                res.status(200).json({ state: "error", messageError: "The username or password are incorrected", field: "username" });
+                return console.log(error);
+            }
+
+            const tokenUser = { username: user.username };
+            user.token = jwt.sign(tokenUser, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '3h' });
+
+            user.save((erro) => {
+                if (erro) {
+                    res.status(400).json({ state: "error", messageError: "An unexpected error has occurred" });
+                    return console.log(err);
+                }
+
+                res.status(201).json({ state: "ok", username: user.username, token: user.token });
+            });
+        });
+    });
+}
+
 module.exports = {
-    signin
+    signin,
+    login
 };
