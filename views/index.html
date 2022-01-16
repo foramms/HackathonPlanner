@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
 
-
+    <link rel="stylesheet" href="../public/bootstrap/css/style.css">
     <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css">
 </head>
-<body>
-    <div id="app" class="container-fluid">
+<body class="gradient-custom">
+    <div id="app" class="container-fluid gradient-custom">
         <div class="row">
             <div class="col">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -18,8 +18,10 @@
                       <a class="navbar-brand" href="/">Virtual Planner</a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
+                        
                       </button>
                       
+                      <button type="button" class="btn btn-light">Logout</button>
                     </div>
                   </nav>
             </div>
@@ -37,17 +39,19 @@
                   </select>
                 </div>
                 <div class="col align-self-center">
-                  Todat is 
+                  Today is Today
                 </div>
             </div>
     
             <div class="row">
               <div class="col-8">
                 <div class="accordion" id="accordionExample">
+                  <br>
+                  <br>
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
                       <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Accordion Item #1
+                        English
                       </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
@@ -85,7 +89,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="headingTwo">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Accordion Item #2
+                        Math
                       </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
@@ -124,7 +128,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="headingThree">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Accordion Item #3
+                        Science
                       </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
