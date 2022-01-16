@@ -17,7 +17,7 @@
 </head>
 <body>
 
-  <section class="vh-100 gradient-custom">
+  <section id="app" class="vh-100 gradient-custom">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -37,18 +37,18 @@
                 <p class="text-white-50 mb-5">Please enter your username and password</p>
   
                 <div class="form-outline form-white mb-4">
-                  <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                  <input type="email" id="typeEmailX" v-model="username" class="form-control form-control-lg" />
                   <label class="form-label" for="typeEmailX">Username</label>
                 </div>
   
                 <div class="form-outline form-white mb-4">
-                  <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                  <input type="password" v-model="password" id="typePasswordX" class="form-control form-control-lg" />
                   <label class="form-label" for="typePasswordX">Password</label>
                 </div>
   
                 <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
   
-                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                <button v-on:click="login" class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
   
                 <div class="d-flex justify-content-center text-center mt-4 pt-1">
                   <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
@@ -71,10 +71,41 @@
     </div>
   </section>
 
-      <link rel="stylesheet" href="/public/jquery.min.js">
-      <link rel="stylesheet" href="/public/bootstrap/js/bootstrap.min.js">
+  <script src="/public/jquery.min.js"></script>
+  <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="/public/vue.min.js"></script>
 
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        username: 'workplease12',
+        password: 'test',
+      }, 
+      methods: {
+        login: function () {
+            axios
+            .post('/user/login',{
+                username: this.username,
+                password: this.password,
+            })
+            .then(response => { 
+                var data = response.data;
 
+                var token = data.token;
+
+                if (token != undefined) {
+                    document.cookie = `token=${token}`;
+
+                window.location.replace("/");
+                }
+            })
+            .catch(error => console.log(error))
+        }
+    },
+    })
+  </script>
 
 </body>
 </html>
