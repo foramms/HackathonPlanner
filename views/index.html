@@ -21,7 +21,7 @@
                         
                       </button>
                       
-                      <button type="button" class="btn btn-light">Logout</button>
+                      <button v-on:click="logout" type="button" class="btn btn-light">Logout</button>
                     </div>
                   </nav>
             </div>
@@ -201,7 +201,17 @@
             planners: [],
             plannerselected: {},
           }, 
+          methods: {
+            logout: function() {
+              document.cookie =  'token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+              window.location.replace("/login"); 
+            },
+          },
           mounted () {
+            var token = getCookie('token');
+
+            if (token == "")  window.location.replace("/login"); 
+
             const headers = {
               'authorization': getCookie('token'),
             }
