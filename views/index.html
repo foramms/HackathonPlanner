@@ -198,6 +198,10 @@
             plannerselected: {},
           }, 
           mounted () {
+            var token = getCookie('token');
+
+            if (token == "")  window.location.replace("/login"); 
+
             const headers = {
               'authorization': getCookie('token'),
             }
