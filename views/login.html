@@ -85,6 +85,11 @@
       }, 
       methods: {
         login: function () {
+          if (this.username.trim() == "") {
+            alert('error');
+            return;
+          }
+
             axios
             .post('/user/login',{
                 username: this.username,
