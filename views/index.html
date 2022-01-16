@@ -21,7 +21,7 @@
                         
                       </button>
                       
-                      <button v-on:click="logout" type="button" class="btn btn-light">Logout</button>
+                      <button type="button" class="btn btn-light">Logout</button>
                     </div>
                   </nav>
             </div>
@@ -61,23 +61,23 @@
                         <ul class="list-group">
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            First checkbox
+                            Final Part 1 Due (12/12/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Second checkbox
+                            Of Mice and Men Short Essay (12/14/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Third checkbox
+                            Of Mice and Men Illustration (12/14/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Fourth checkbox
+                            Turn in book (12/19/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Fifth checkbox
+                            Final Part 2 Due (12/20/22)
                           </li> 
                         </ul>
                         
@@ -100,24 +100,17 @@
                         <ul class="list-group">
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            First checkbox
+                            HW #22 (12/14/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Second checkbox
+                            HW #23 (12/16/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Third checkbox
+                            Turn in Practice Final (12/18/22)
                           </li>
-                          <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Fourth checkbox
-                          </li>
-                          <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Fifth checkbox
-                          </li>
+
                         </ul>
                         
                         
@@ -138,23 +131,19 @@
                         <ul class="list-group">
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            First checkbox
+                            Do Lab Write Up (12/10/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Second checkbox
+                            Turn in movie Qs (12/15/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Third checkbox
+                            Make study packet (12/18/22)
                           </li>
                           <li class="list-group-item">
                             <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Fourth checkbox
-                          </li>
-                          <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                            Fifth checkbox
+                            Packet Due (12/22/22)
                           </li>
                         </ul>
                         
@@ -201,17 +190,7 @@
             planners: [],
             plannerselected: {},
           }, 
-          methods: {
-            logout: function() {
-              document.cookie =  'token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-              window.location.replace("/login"); 
-            },
-          },
           mounted () {
-            var token = getCookie('token');
-
-            if (token == "")  window.location.replace("/login"); 
-
             const headers = {
               'authorization': getCookie('token'),
             }
